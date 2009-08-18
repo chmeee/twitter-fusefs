@@ -5,7 +5,7 @@ require 'pp'
 class TwitterFuseFS < FuseFS::FuseDir
   def initialize
     @twitter_user = TwitterAccount.new
-    @files = %w{ direct_messages updates timeline replies } 
+    @files = %w{ direct_messages updates timeline replies README} 
     @dirs = %w{ followers friends }
   end
 
@@ -38,6 +38,14 @@ class TwitterFuseFS < FuseFS::FuseDir
     case path
     when "/timeline"
       @twitter_user.friends_timeline
+    when "/direct_messages"
+      @twitter_user.direct_messages
+    when "/updates"
+      @twitter_user.updates
+    when "/replies"
+      @twitter_user.replies
+    when "/README"
+      "twitter-fusefs\n"
     end
   end
 end
