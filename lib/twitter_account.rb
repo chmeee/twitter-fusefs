@@ -39,4 +39,9 @@ class TwitterAccount
     texts = @account.replies.map {|t| "#{t.user.screen_name}> #{t.text}"}
     texts.join("\n") + "\n"
   end
+
+  def update(msg)
+    @account.update msg
+  end
+
 end

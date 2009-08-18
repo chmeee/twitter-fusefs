@@ -48,4 +48,19 @@ class TwitterFuseFS < FuseFS::FuseDir
       "twitter-fusefs\n"
     end
   end
+
+  def write_to(path, body)
+    case path
+    when "/updates"
+      @twitter_user.update body
+    end
+  end
+
+  def can_write?(path)
+    path == "/updates"
+  end
+
+  def can_delete?(path)
+    path == "/updates"
+  end
 end
