@@ -33,4 +33,11 @@ class TwitterFuseFS < FuseFS::FuseDir
     dir_items = scan_path(path)
     @dirs.include?(dir_items.last)
   end
+
+  def read_file(path)
+    case path
+    when "/timeline"
+      @twitter_user.friends_timeline
+    end
+  end
 end

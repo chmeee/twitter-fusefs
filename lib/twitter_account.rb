@@ -17,4 +17,10 @@ class TwitterAccount
       follower.screen_name
     end
   end
+
+# wating for a better formating (see twitter gem bien)
+  def friends_timeline
+    texts = @account.friends_timeline.map {|t| "#{t.user.screen_name}> #{t.text}"}
+    texts.join("\n")
+  end
 end
