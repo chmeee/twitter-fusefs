@@ -1,3 +1,5 @@
+# Created by John Nunemaker for ruby twitter gem: http://twitter.rubyforge.org/
+
 class ConfigStore
   attr_reader :file
   
