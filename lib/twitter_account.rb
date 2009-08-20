@@ -44,4 +44,9 @@ class TwitterAccount
     @account.update msg
   end
 
+  def user_timeline(user)
+    texts = Twitter::Search.new(user).map {|t| "#{t.from_user}> #{t.text}"}
+    texts.join("\n") + "\n"
+  end
+
 end

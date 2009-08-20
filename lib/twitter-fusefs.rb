@@ -47,7 +47,8 @@ class TwitterFuseFS < FuseFS::FuseDir
     when "/README"
       "twitter-fusefs\n"
     when /\/(followers|friends)\/(.*)/
-      "You want the timeline of your #{$1} #{$2}\n"
+#      "You want the timeline of your #{$1} #{$2}\n"
+      @twitter_user.user_timeline($2)
     end
   end
 
