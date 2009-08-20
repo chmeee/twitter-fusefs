@@ -39,15 +39,15 @@ Otherwise, if you don't want to use a ruby gem you can do the following
 
 1. Create a directory ~/.twitter with
 
-    email: yourtwitteraccountmail
-    password: yourcomplexpassword
+    `email: yourtwitteraccountmail`
+    `password: yourcomplexpassword`
 
 2. `mkdir` a directory where you want to mount
 3. `twitter-fusefs yourdirectory`
 
 Please, note that this script does not require rubygems, as you may not be using it. If you do you'll have to tell ruby so. The best way I think is through
 
-   export RUBYOPT="rubygems"
+    export RUBYOPT="rubygems"
 
 ## TO-DO
 
