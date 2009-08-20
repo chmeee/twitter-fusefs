@@ -61,6 +61,7 @@ twitter-fusefs is still in design and development. I'm still thinking about some
 * Block with rm on /followers
 * Reformat the output of tweets and add more information (like time, app, in respond to, etc.)
 * Access to Twitter trends (whatever that is)
+* A way to finish the program gracely
 * **DONE** Produce a ruby-gem
 * Make a github page for the project
 * Make tests!!! (I don't know how yet)
