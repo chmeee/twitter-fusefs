@@ -8,15 +8,15 @@ When you run it it will generate the following directory structure:
     direct_messages  followers/  friends/  README  replies  timeline  updates
 
 ### Files
-* direct_messages: when 'read' will output your direct_messages
-* README: when 'read' will output some info about twitter-fusefs
-* replies: when 'read' will output your replies
-* timeline: when 'read' will output your timeline (with your friends)
-* updates: when 'read' will output your tweets, when 'written to` will create a new tweet with the msg
+* `direct_messages`: when 'read' will output your direct_messages
+* `README`: when 'read' will output some info about twitter-fusefs
+* `replies`: when 'read' will output your replies
+* `timeline`: when 'read' will output your timeline (with your friends)
+* `updates`: when 'read' will output your tweets, when 'written to` will create a new tweet with the msg
 
 ### Directories
-* followers/: has a list of files, each with a follower's nick
-* friends/: has a list of files, each with a friend's nick
+* `followers/`: has a list of files, each with a follower's nick
+* `friends/`: has a list of files, each with a friend's nick
 
 When 'read' from users' files will output his/her timeline, when 'written to' users' files will update your timeline adding @user.
 
