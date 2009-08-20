@@ -5,7 +5,7 @@ twitter-fusefs is a program to mount your twitter account as a filesystem.
 ## Directory structure
 When you run it it will generate the following directory structure:
 
-  direct_messages  followers/  friends/  README  replies  timeline  updates
+    direct_messages  followers/  friends/  README  replies  timeline  updates
 
 ### Files
 * direct_messages: when 'read' will output your direct_messages
