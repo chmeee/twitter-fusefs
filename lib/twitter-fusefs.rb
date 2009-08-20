@@ -1,3 +1,4 @@
+require File.join(File.dirname(__FILE__), 'twitter_account.rb')
 require 'fusefs'
 include FuseFS
 require 'pp'

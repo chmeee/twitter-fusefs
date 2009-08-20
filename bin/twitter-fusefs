@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require File.join(File.dirname(__FILE__), '..', 'lib', 'twitter-fusefs')
+
+tfs = TwitterFuseFS.new
+FuseFS.set_root(tfs)
+FuseFS.mount_under ARGV[0] || "/home/jmpavon/Mount/twitter"
+FuseFS.run
