@@ -20,6 +20,19 @@ When you run it it will generate the following directory structure:
 
 When 'read' from users' files will output his/her timeline, when 'written to' users' files will update your timeline adding @user.
 
+## TO-DO
+
+twitter-fusefs is still in design and development. I'm still thinking about some of the details, so here's a to-do list:
+
+* Use SSL
+* Access user status: /status for the mounting user and 'maybe' /(followers|friends)/user_status for the rest of users
+* Unfollow people with rm on /friends
+* Follow with touch on /friends
+* Block with rm on /followers
+* Reformat the output of tweets and add more information (like time, app, in respond to, etc.)
+* Trends
+* Produce a ruby-gem
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
