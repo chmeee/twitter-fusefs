@@ -40,6 +40,7 @@ Otherwise, if you don't want to use a ruby gem you can do the following
 1. Create a directory ~/.twitter with
 
     `email: yourtwitteraccountmail`
+
     `password: yourcomplexpassword`
 
 2. `mkdir` a directory where you want to mount
