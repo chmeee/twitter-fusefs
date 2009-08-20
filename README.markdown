@@ -20,6 +20,23 @@ When you run it it will generate the following directory structure:
 
 When 'read' from users' files will output his/her timeline, when 'written to' users' files will update your timeline adding @user.
 
+## Install and Use
+
+Until there's a ruby gem you can do the following
+
+1. Install the twitter gem: `sudo gem install twitter`
+2. Install [Ruby FuseFS][1] (as far as I know, there's no ruby gem)
+3. Download twitter-fusefs, uncompress
+4. Create a directory ~/.twitter with
+
+    email: yourtwitteraccountmail
+    password: yourcomplexpassword
+
+5. `mkdir` a directory where you want to mount
+6. `./bin/twitter-fusefs yourdirectory`
+
+  [1]: http://rubyforge.org/projects/fusefs
+
 ## TO-DO
 
 twitter-fusefs is still in design and development. I'm still thinking about some of the details, so here's a to-do list:
