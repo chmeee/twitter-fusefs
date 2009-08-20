@@ -37,6 +37,10 @@ Until there's a ruby gem you can do the following
 
   [1]: http://rubyforge.org/projects/fusefs
 
+Please, note that this script does not require rubygems, as you may not be using it. If you do you'll have to tell ruby so. The best way I think is through
+
+export RUBYOPT="rubygems"
+
 ## TO-DO
 
 twitter-fusefs is still in design and development. I'm still thinking about some of the details, so here's a to-do list:
