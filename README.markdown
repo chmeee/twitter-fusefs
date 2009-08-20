@@ -39,7 +39,7 @@ Until there's a ruby gem you can do the following
 
 Please, note that this script does not require rubygems, as you may not be using it. If you do you'll have to tell ruby so. The best way I think is through
 
-export RUBYOPT="rubygems"
+   export RUBYOPT="rubygems"
 
 ## TO-DO
 
@@ -51,8 +51,9 @@ twitter-fusefs is still in design and development. I'm still thinking about some
 * Follow with touch on /friends
 * Block with rm on /followers
 * Reformat the output of tweets and add more information (like time, app, in respond to, etc.)
-* Trends
+* Access to Twitter trends (whatever that is)
 * Produce a ruby-gem
+* Make a github page for the project
 
 ## Note on Patches/Pull Requests
  

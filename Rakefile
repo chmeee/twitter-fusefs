@@ -6,12 +6,14 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "twitter-fusefs"
     gem.summary = %Q{Access twitter as a filesystem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.description = %Q{Mount your twitter account as a userspace filesystem, access your tweets as files, update echo'ing over files}
     gem.email = "chmeee@gmail.com"
     gem.homepage = "http://github.com/chmeee/twitter-fusefs"
     gem.authors = ["chmeee"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
     gem.files =  FileList["[A-Z]*", "{bin,helpers,lib,test}/**/*", 'lib/jeweler/templates/.gitignore']
+    gem.bindir = 'bin'
+    gem.executables = ['twitter-fusefs']
     gem.add_dependency 'twitter'
   end
 
