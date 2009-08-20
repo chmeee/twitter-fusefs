@@ -47,23 +47,27 @@ class TwitterFuseFS < FuseFS::FuseDir
     when "/README"
       "twitter-fusefs\n"
     when /\/(followers|friends)\/(.*)/
-#      "You want the timeline of your #{$1} #{$2}\n"
       @twitter_user.user_timeline($2)
     end
   end
 
   def write_to(path, body)
-    case path
-    when "/updates"
-      @twitter_user.update body
+    if !body.empty? # don't know why it gets executed twice, first time without body
+      case path
+      when "/updates"
+        @twitter_user.update body
+      when /\/(followers|friends)\/(.*)$/
+        body = "@#{$2} #{body}"
+        @twitter_user.update body
+      end
     end
   end
 
   def can_write?(path)
-    path == "/updates"
+    path == "/updates" or path =~ /\/(followers|friends)\/.*/
   end
 
   def can_delete?(path)
-    path == "/updates"
+    can_write?(path)
   end
 end
