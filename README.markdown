@@ -22,20 +22,28 @@ When 'read' from users' files will output his/her timeline, when 'written to' us
 
 ## Install and Use
 
-Until there's a ruby gem you can do the following
+### Install
 
-1. Install the twitter gem: `sudo gem install twitter`
-2. Install [Ruby FuseFS][1] (as far as I know, there's no ruby gem)
-3. Download twitter-fusefs, uncompress
-4. Create a directory ~/.twitter with
+First of all, install [Ruby FuseFS][1] (as far as I know, there's no ruby gem). There's a debian/ubuntu package though.
+
+  [1]: http://rubyforge.org/projects/fusefs
+
+There's a ruby gem now, you should be able to get it if you have the github repository just doing `sudo gem install chmeee-twitter-fusefs`. This should install the twitter gem as well.
+
+Otherwise, if you don't want to use a ruby gem you can do the following
+
+* Install the twitter gem: `sudo gem install twitter`
+* Download twitter-fusefs, uncompress
+
+### Use
+
+1. Create a directory ~/.twitter with
 
     email: yourtwitteraccountmail
     password: yourcomplexpassword
 
-5. `mkdir` a directory where you want to mount
-6. `./bin/twitter-fusefs yourdirectory`
-
-  [1]: http://rubyforge.org/projects/fusefs
+2. `mkdir` a directory where you want to mount
+3. `twitter-fusefs yourdirectory`
 
 Please, note that this script does not require rubygems, as you may not be using it. If you do you'll have to tell ruby so. The best way I think is through
 
@@ -52,8 +60,10 @@ twitter-fusefs is still in design and development. I'm still thinking about some
 * Block with rm on /followers
 * Reformat the output of tweets and add more information (like time, app, in respond to, etc.)
 * Access to Twitter trends (whatever that is)
-* Produce a ruby-gem
+* **DONE** Produce a ruby-gem
 * Make a github page for the project
+* Make tests!!! (I don't know how yet)
+* Make rdoc comments
 
 ## Note on Patches/Pull Requests
  
