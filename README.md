@@ -12,7 +12,7 @@ When you run it it will generate the following directory structure:
 * `README`: when 'read' will output some info about twitter-fusefs
 * `replies`: when 'read' will output your replies
 * `timeline`: when 'read' will output your timeline (with your friends)
-* `updates`: when 'read' will output your tweets, when 'written to` will create a new tweet with the msg
+* `updates`: when 'read' will output your tweets, when 'written to' will create a new tweet with the msg
 
 ### Directories
 * `followers/`: has a list of files, each with a follower's nick
@@ -54,7 +54,7 @@ Please, note that this script does not require rubygems, as you may not be using
 
 twitter-fusefs is still in design and development. I'm still thinking about some of the details, so here's a to-do list:
 
-* Use SSL
+* **[DONE]** Use SSL
 * Access user status: /status for the mounting user and 'maybe' /(followers|friends)/user_status for the rest of users
 * Unfollow people with rm on /friends
 * Follow with touch on /friends
