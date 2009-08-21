@@ -62,8 +62,8 @@ twitter-fusefs is still in design and development. I'm still thinking about some
 * Reformat the output of tweets and add more information (like time, app, in respond to, etc.)
 * Access to Twitter trends (whatever that is)
 * A way to finish the program gracely
-* **DONE** Produce a ruby-gem
-* Make a github page for the project
+* **[DONE]** Produce a ruby-gem
+* **[DONE]** Make a github page for the project (quite empty atm)
 * Make tests!!! (I don't know how yet)
 * Make rdoc comments
 
