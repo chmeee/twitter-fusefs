@@ -6,7 +6,7 @@ class TwitterAccount
 
   def initialize
     config = ConfigStore.new("#{ENV['HOME']}/.twitter")
-    httpauth = Twitter::HTTPAuth.new(config['email'], config['password'])
+    httpauth = Twitter::HTTPAuth.new(config['email'], config['password'], :ssl => true)
     @account = Twitter::Base.new(httpauth)
 
     @friends = @account.friends.map do |friend|
