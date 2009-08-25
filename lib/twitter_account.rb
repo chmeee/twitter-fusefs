@@ -24,37 +24,49 @@ class TwitterAccount
 # wating for a better formating (see twitter gem bien)
 # this methods are looking for some factoring
   def friends_timeline
-    texts = @account.friends_timeline.map {|t| "#{t.user.screen_name}> #{t.text}"}
-    texts.join("\n") + "\n"
+    format_tweet(@account.friends_timeline) do |t|
+      t.user.screen_name
+    end
   end
 
   def direct_messages
-    texts = @account.direct_messages.map {|t| "#{t.sender.screen_name}> #{t.text}"}
-    texts.join("\n") + "\n"
+    format_tweet(@account.direct_messages) do |t|
+      t.sender.screen_name
+    end
   end
 
   def updates
-    texts = @account.user_timeline.map {|t| "#{t.user.screen_name}> #{t.text}"}
-    texts.join("\n") + "\n"
+    format_tweet(@account.user_timeline) do |t|
+      t.user.screen_name
+    end
   end
 
   def replies
-    texts = @account.replies.map {|t| "#{t.user.screen_name}> #{t.text}"}
-    texts.join("\n") + "\n"
-  end
-
-  def update(msg)
-    @account.update msg
-  end
-
-  def user_timeline(user)
-    texts = Twitter::Search.new(user).map {|t| "#{t.from_user}> #{t.text}"}
-    texts.join("\n") + "\n"
+    format_tweet(@account.replies) do |t|
+      t.user.screen_name
+    end
   end
 
   def favorites
-    texts = @account.favorites.map {|t| "#{t.user.screen_name}> #{t.text}"}
+    format_tweet(@account.favorites) do |t|
+      t.user.screen_name
+    end
+  end
+
+  def user_timeline(user)
+    format_tweet(Twitter::Search.new(user)) do |t|
+      t.from_user
+    end
+  end
+
+  def format_tweet(base)
+    texts = base.map {|t| "#{yield(t)}> #{t.text}"}
     texts.join("\n") + "\n"
+  end
+
+
+  def update(msg)
+    @account.update msg
   end
 
   def status(id=@twitter_id)
