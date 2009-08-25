@@ -6,7 +6,9 @@ require 'pp'
 class TwitterFuseFS < FuseFS::FuseDir
   def initialize
     @twitter_user = TwitterAccount.new
-    @files = %w{ direct_messages updates timeline replies README} 
+    @files_r = %w{ direct_messages favorites README replies timeline } 
+    @files_rw = %w{ status updates } 
+    @files = @files_r + @files_rw
     @dirs = %w{ followers friends }
   end
 
@@ -45,6 +47,10 @@ class TwitterFuseFS < FuseFS::FuseDir
       @twitter_user.updates
     when "/replies"
       @twitter_user.replies
+    when "status"
+      @twitter_user.status
+    when "favorites"
+      @twitter_user.favorites
     when "/README"
       "twitter-fusefs\n"
     when /\/(followers|friends)\/(.*)/
@@ -53,7 +59,9 @@ class TwitterFuseFS < FuseFS::FuseDir
   end
 
   def write_to(path, body)
-    if !body.empty? # don't know why it gets executed twice, first time without body
+# don't know why it gets executed twice, first time with an empty body
+# I guess it's because it first creates an empty file
+    if !body.empty? 
       case path
       when "/updates"
         @twitter_user.update body
@@ -65,7 +73,10 @@ class TwitterFuseFS < FuseFS::FuseDir
   end
 
   def can_write?(path)
-    path == "/updates" or path =~ /\/(followers|friends)\/.*/
+    items = scan_path(path)
+    root_cond = @files_rw.include?(items[0])
+    dirs_cond = (@dirs.include?(items[0]) and !items[1].nil?)
+    root_cond or dirs_cond
   end
 
   def can_delete?(path)

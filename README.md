@@ -55,7 +55,7 @@ Please, note that this script does not require rubygems, as you may not be using
 twitter-fusefs is still in design and development. I'm still thinking about some of the details, so here's a to-do list:
 
 * **[DONE]** Use SSL
-* Access user status: /status for the mounting user and 'maybe' /(followers|friends)/user_status for the rest of users
+* **[DONE]** Access user status: /status for the mounting user and 'maybe' /(followers|friends)/user_status for the rest of users
 * Unfollow people with rm on /friends
 * Follow with touch on /friends
 * Block with rm on /followers
@@ -66,6 +66,10 @@ twitter-fusefs is still in design and development. I'm still thinking about some
 * **[DONE]** Make a github page for the project (quite empty atm)
 * Make tests!!! (I don't know how yet)
 * Make rdoc comments
+* A way to answer tweets
+* A way to send and reply to direct_messages
+* **[DONE]** Show favorites
+* Create favorites
 
 ## Note on Patches/Pull Requests
  

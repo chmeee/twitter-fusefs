@@ -2,7 +2,7 @@ require 'twitter'
 require File.join(File.dirname(__FILE__), '..', 'helpers', 'config_store')
 
 class TwitterAccount
-  attr_reader :friends, :followers
+  attr_reader :friends, :followers, :twitter_id
 
   def initialize
     config = ConfigStore.new("#{ENV['HOME']}/.twitter")
@@ -16,6 +16,9 @@ class TwitterAccount
     @followers = @account.followers.map do |follower|
       follower.screen_name
     end
+
+#    @twitter_id = @account.user_timeline.first[:id]
+    @twitter_id = @account.user_timeline.first.id
   end
 
 # wating for a better formating (see twitter gem bien)
@@ -47,6 +50,15 @@ class TwitterAccount
   def user_timeline(user)
     texts = Twitter::Search.new(user).map {|t| "#{t.from_user}> #{t.text}"}
     texts.join("\n") + "\n"
+  end
+
+  def favorites
+    texts = @account.favorites.map {|t| "#{t.user.screen_name}> #{t.text}"}
+    texts.join("\n") + "\n"
+  end
+
+  def status(id=@twitter_id)
+    @account.status(id)
   end
 
 end
