@@ -47,9 +47,9 @@ class TwitterFuseFS < FuseFS::FuseDir
       @twitter_user.updates
     when "/replies"
       @twitter_user.replies
-    when "status"
+    when "/status"
       @twitter_user.status
-    when "favorites"
+    when "/favorites"
       @twitter_user.favorites
     when "/README"
       "twitter-fusefs\n"

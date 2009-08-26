@@ -16,9 +16,6 @@ class TwitterAccount
     @followers = @account.followers.map do |follower|
       follower.screen_name
     end
-
-#    @twitter_id = @account.user_timeline.first[:id]
-    @twitter_id = @account.user_timeline.first.id
   end
 
 # wating for a better formating (see twitter gem bien)
@@ -69,8 +66,10 @@ class TwitterAccount
     @account.update msg
   end
 
-  def status(id=@twitter_id)
-    @account.status(id)
+  def status
+    user_status = @account.user_timeline.first.user
+    texts = "location: #{user_status.location}\n"
+    texts += "favorites: #{user_status.favourites_count}\n"
   end
 
 end
